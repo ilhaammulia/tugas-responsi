@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+  <title>Login</title>
+</head>
+<body>
+  {% macro showerror(field) %}
+    {% if errors %}
+      {% for t in errors %}
+        {% if field in t[0] %}
+          <div class="alert alert-danger">{{ t[1][0] }}</div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endmacro %}
+  <h2 class="text-center mt-5">SELAMAT DATANG ACHMAD YANI MUDA <br> DI FAKULTAS TEKNIK DAN TEKNOLOGI INFORMASI <br> UNIVERSITAS JENDERAL ACHMAD YANI YOGYAKARTA</h2>
+  <br>
+  <form method="post" action="/" class="mx-auto" style="width: 25%;">
+    {{ form.csrf_token }}
+    <label>{{ form.email.label }}</label>
+    {{ form.email(class_='form-control col-sm-10', placeholder='Masukkan alamat email') }}
+    <label>{{ form.password.label }}</label>
+    {{ form.password(class_='form-control col-sm-10', placeholder='Masukkan password') }}
+    <br>
+    {{ form.remember()}} {{ form.remember.label }}
+    <br><br>
+    {{ form.login(class_='btn btn-primary form-control col-sm-10') }}
+    {% if auth_error %}
+      <br><br>
+      <div class="alert alert-danger text-sm">Kombinasi email dan password yang Anda masukkan tidak sesuai!</div>
+    {% endif %}
+  </form>
+</body>
+</html>

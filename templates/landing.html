@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+  <title>Landing</title>
+</head>
+<body class="bg-primary">
+  <a href="/logout" class="btn btn-danger float-end mt-3 me-3">Log Out</a>
+  <br>
+  <p class="text-center mt-5 text-white mx-auto">Selamat datang, {{ session }}! <br> Selamat Anda telah berhasil menyelesaikan responsi ini! <br><br> #PAW2022</p>
+</body>
+</html>
